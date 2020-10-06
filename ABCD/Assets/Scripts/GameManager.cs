@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,6 +40,19 @@ public class GameManager : MonoBehaviour
     {
         // randomly place the required number of targets in the grid.
         int numPlaced = 0;
+        bool done = false;
+        while (!done)
+        {
+            int i = Random.Range(0, _clickables.Count);
+            {
+                if (_clickables[i].GetChar() != targetLetter.Letter)
+                {
+                    _clickables[i].SetLetter(targetLetter.Letter);
+                    numPlaced++;
+                    done = NumTargets - numPlaced == 0;
+                }
+            }
+        }
     }
 
     //private void makeTargetLetters()

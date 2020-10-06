@@ -18,9 +18,13 @@ public class Clickable : MonoBehaviour, IPointerClickHandler
             GameManager.NumFound++;
             if (GameManager.NumTargets - GameManager.NumFound == 0)
                 GameManager.generateBoard();
-
-            
         }
+    }
+
+    public char GetChar()
+    {
+        string sletter = GetComponent<TMP_Text>().text;
+        return sletter[0];
     }
 
     public void SetRandomLetter()
