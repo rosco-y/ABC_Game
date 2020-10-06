@@ -7,11 +7,17 @@ using UnityEngine;
 
 public class targetLetter : MonoBehaviour
 {
-    public static char _targetLetter;
-    private void OnEnable()
+    public static char Letter;
+    public void SetRandomLetter()
     {
-        _targetLetter = (char)('a' + Random.Range(0, 26));
-        string sLetter = _targetLetter.ToString();
+        Letter = (char)('a' + Random.Range(0, 26));
+        SetText(Letter);
+    }
+
+    void SetText(char cLetter)
+    {
+        string sLetter = cLetter.ToString();
         GetComponent<TMP_Text>().text = sLetter.ToUpper() + ' ' + sLetter;
     }
+
 }
