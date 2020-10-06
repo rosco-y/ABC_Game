@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
 
     public static void generateBoard()
     {
+
         NumFound = 0;
+        FindObjectOfType<CountDown>().Reset();
         targetLetter tl = FindObjectOfType<targetLetter>();
         tl.SetRandomLetter();
         _clickables = FindObjectsOfType<Clickable>().ToList();
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour
                 if (_clickables[i].GetChar() != targetLetter.Letter)
                 {
                     _clickables[i].SetLetter(targetLetter.Letter);
-                    numPlaced++;
+                    numPlaced++;                    
                     done = NumTargets - numPlaced == 0;
                 }
             }

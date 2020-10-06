@@ -16,8 +16,10 @@ public class Clickable : MonoBehaviour, IPointerClickHandler
         {
             GetComponent<TMP_Text>().color = Color.green;
             GameManager.NumFound++;
+            FindObjectOfType<CountDown>().Decrement();
             if (GameManager.NumTargets - GameManager.NumFound == 0)
                 GameManager.generateBoard();
+
         }
     }
 
